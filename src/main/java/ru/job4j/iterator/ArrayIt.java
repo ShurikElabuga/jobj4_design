@@ -10,7 +10,7 @@ public class ArrayIt implements Iterator<Integer> {
         this.data = data;
     }
 
-    @Override
+   /* @Override
     public boolean hasNext() {
         return point < data.length;
     }
@@ -18,5 +18,5 @@ public class ArrayIt implements Iterator<Integer> {
     @Override
     public Integer next() {
         return data[point++];
-    }
+    }*/
 }

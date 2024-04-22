@@ -20,12 +20,12 @@ public class MatrixIterator implements Iterator<Integer> {
                continue;
            }
            if (column < data[row].length) {
-               return true;
+               break;
            }
            row++;
            column = 0;
        }
-       return false;
+       return row < data.length && column < data[row].length;
     }
 
     @Override

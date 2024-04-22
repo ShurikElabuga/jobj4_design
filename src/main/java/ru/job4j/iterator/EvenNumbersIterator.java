@@ -30,9 +30,6 @@ public class EvenNumbersIterator implements Iterator<Integer> {
         if (!hasNext()) {
             throw new NoSuchElementException();
         }
-        if (data[index] % 2 != 0) {
-            index++;
-        }
         return data[index++];
     }
 }

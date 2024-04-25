@@ -11,7 +11,7 @@ public class SimpleArrayList<T> implements SimpleList<T> {
         container = (T[]) new Object[capacity];
     }
 
-    public void growArray() {
+    private void growArray() {
         if (container.length == 0) {
             container = Arrays.copyOf(container, container.length + 10);
         }
@@ -30,8 +30,6 @@ public class SimpleArrayList<T> implements SimpleList<T> {
     @Override
     public T set(int index, T newValue) {
         T result = get(index);
-        growArray();
-        System.arraycopy(container, index, container, index + 1, size - index);
         container[index] = newValue;
         return result;
     }

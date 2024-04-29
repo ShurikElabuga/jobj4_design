@@ -12,28 +12,23 @@ public class SimpleQueue<T> {
         if (sizeIn == 0) {
             throw new NoSuchElementException("Queue is empty");
         }
-        T result = input.pop();
-        sizeIn--;
+        while (sizeIn != 0) {
+            output.push(input.pop());
+            sizeOut++;
+            sizeIn--;
+        }
+        T result = output.pop();
+        sizeOut--;
+        while (sizeOut != 0) {
+            input.push(output.pop());
+            sizeIn++;
+            sizeOut--;
+        }
         return result;
     }
 
     public void push(T value) {
-        if (sizeIn == 0) {
-            input.push(value);
-            sizeIn++;
-        } else {
-            for (int i = 0; i < sizeIn; i++) {
-                output.push(input.pop());
-                sizeOut++;
-                sizeIn--;
-            }
-            input.push(value);
-            sizeIn++;
-            for (int j = 0; j < sizeOut; j++) {
-                input.push(output.pop());
-                sizeIn++;
-                sizeOut--;
-            }
-        }
+        input.push(value);
+        sizeIn++;
     }
 }

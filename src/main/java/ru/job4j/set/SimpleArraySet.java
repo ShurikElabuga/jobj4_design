@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.Objects;
 
 public class SimpleArraySet<T> implements SimpleSet<T> {
-    private SimpleArrayList<T> set = new SimpleArrayList<>(0);
+   /* private SimpleArrayList<T> set = new SimpleArrayList<>(0);
 
     @Override
     public boolean add(T value) {
@@ -20,7 +20,7 @@ public class SimpleArraySet<T> implements SimpleSet<T> {
     @Override
     public boolean contains(T value) {
         boolean rsl = false;
-        for (T el : set){
+        for (T el : set) {
             if (Objects.equals(el, value)) {
                 rsl = true;
                 break;
@@ -32,5 +32,5 @@ public class SimpleArraySet<T> implements SimpleSet<T> {
     @Override
     public Iterator<T> iterator() {
         return set.iterator();
-    }
+    }*/
 }

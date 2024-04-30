@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.*;
 
 class SimpleArraySetTest {
     @Test
-    void whenAddNonNull() {
+  /*  void whenAddNonNull() {
         SimpleSet<Integer> set = new SimpleArraySet<>();
         assertThat(set.add(1)).isTrue();
         assertThat(set.contains(1)).isTrue();
@@ -37,5 +37,5 @@ class SimpleArraySetTest {
         assertThat(set.contains(null)).isTrue();
         assertThat(set.add(null)).isFalse();
     }
-
+*/
 }

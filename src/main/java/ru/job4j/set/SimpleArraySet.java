@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.Objects;
 
 public class SimpleArraySet<T> implements SimpleSet<T> {
-   /* private SimpleArrayList<T> set = new SimpleArrayList<>(0);
+    private SimpleArrayList<T> set = new SimpleArrayList<>(0);
 
     @Override
     public boolean add(T value) {
@@ -32,5 +32,5 @@ public class SimpleArraySet<T> implements SimpleSet<T> {
     @Override
     public Iterator<T> iterator() {
         return set.iterator();
-    }*/
+    }
 }

@@ -6,24 +6,14 @@ import java.io.IOException;
 public class Multiple {
     public static void main(String[] args) {
         try (FileOutputStream output = new FileOutputStream("data/multiple.txt")) {
-            output.write("1 * 1 = 1".getBytes());
-            output.write(System.lineSeparator().getBytes());
-            output.write("1 * 2 = 2".getBytes());
-            output.write(System.lineSeparator().getBytes());
-            output.write("1 * 3 = 3".getBytes());
-            output.write(System.lineSeparator().getBytes());
-            output.write("1 * 4 = 4".getBytes());
-            output.write(System.lineSeparator().getBytes());
-            output.write("1 * 5 = 5".getBytes());
-            output.write(System.lineSeparator().getBytes());
-            output.write("1 * 6 = 6".getBytes());
-            output.write(System.lineSeparator().getBytes());
-            output.write("1 * 7 = 7".getBytes());
-            output.write(System.lineSeparator().getBytes());
-            output.write("1 * 8 = 8".getBytes());
-            output.write(System.lineSeparator().getBytes());
-            output.write("1 * 9 = 9".getBytes());
-            output.write(System.lineSeparator().getBytes());
+            for (int i = 1; i < 10; i++) {
+                for (int j = 1; j < 10; j++) {
+                    String str = Integer.toString(i * j);
+                    output.write(str.getBytes());
+                    output.write(" ".getBytes());
+                }
+                output.write(System.lineSeparator().getBytes());
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -26,6 +26,33 @@ class ConfigTest {
     }
 
     @Test
+    void whenPairIsException() {
+        String path = "./data/wron_template.properties";
+        Config config = new Config(path);
+        assertThatThrownBy(config::load)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("wrong template");
+    }
+
+    @Test
+    void whenFileHasException() {
+        String path = "./data/pair_have_wrong_template.properties";
+        Config config = new Config(path);
+        assertThatThrownBy(config::load)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("wrong template");
+    }
+
+    @Test
+    void whenIsException() {
+        String path = "./data/pair_wrong_template.properties";
+        Config config = new Config(path);
+        assertThatThrownBy(config::load)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("wrong template");
+    }
+
+    @Test
     void whenPairWithComment() {
         String path = "./data/pait_with_comment.properties";
         Config config = new Config(path);

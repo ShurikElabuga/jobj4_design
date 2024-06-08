@@ -18,14 +18,11 @@ public class Analysis {
                     if (work == 400) {
                         continue;
                     }
-                    writer.write(date);
-                    writer.write(";");
+                    writer.append(date).append(";");
                     work = 400;
                 } else {
                     if (work == 400) {
-                        writer.write(date);
-                        writer.write(';');
-                        writer.write("\n");
+                        writer.append(date).append(";").append(System.lineSeparator());
                         work = 200;
                     }
                 }

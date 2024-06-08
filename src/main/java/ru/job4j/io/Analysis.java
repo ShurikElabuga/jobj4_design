@@ -12,17 +12,20 @@ public class Analysis {
             while ((line = reader.readLine()) != null) {
                 String[] words = line.split(" ", 2);
                 String status = words[0];
-                String date = words[1] + ";";
-                boolean start = status.equals("400") || status.equals("500");
+                String date = words[1];
+                boolean start = "400".equals(status) || "500".equals(status);
                 if (start) {
                     if (work == 400) {
                         continue;
                     }
                     writer.write(date);
+                    writer.write(";");
                     work = 400;
                 } else {
                     if (work == 400) {
-                        writer.write(date + "\n");
+                        writer.write(date);
+                        writer.write(';');
+                        writer.write("\n");
                         work = 200;
                     }
                 }

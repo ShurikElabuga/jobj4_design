@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
+
 public class DuplicatesFinder {
     public static void main(String[] args) throws IOException {
         Path start = Paths.get(".");
@@ -28,5 +29,6 @@ public class DuplicatesFinder {
                 }
             }
         }
+
     }
 }

@@ -9,25 +9,21 @@ import java.util.function.Predicate;
 
 public class Search {
     public static void main(String[] args) throws IOException {
+        checkArgs(args);
         File start = new File(args[0]);
-        String str = args[1];
-        checkArgs(args, start, str);
         search(start.toPath(), path -> path.toFile().getName()
-                .endsWith(str)).forEach(System.out::println);
+                .endsWith(args[1])).forEach(System.out::println);
     }
 
-    public static void checkArgs(String[] args, File file, String string) {
-        if (args.length == 0) {
-            throw new IllegalArgumentException("Root folder is null. Usage  ROOT_FOLDER.");
+    public static void checkArgs(String[] args) {
+        if (args.length != 2) {
+            throw new IllegalArgumentException("Enter two parameters.");
         }
-        if (!file.exists()) {
-            throw new IllegalArgumentException(String.format("Not exist %s", file.getAbsoluteFile()));
+        if (!".".equals(args[0])) {
+            throw new IllegalArgumentException("Root folder is not valid");
         }
-        if (!file.isDirectory()) {
-            throw new IllegalArgumentException(String.format("Not directory %s", file.getAbsoluteFile()));
-        }
-        if (string.isEmpty()) {
-            throw new IllegalArgumentException("No search data");
+        if (!".js".equals(args[1])) {
+            throw new IllegalArgumentException("File extension is not correct");
         }
     }
 

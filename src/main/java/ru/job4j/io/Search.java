@@ -16,8 +16,8 @@ public class Search {
     }
 
     public static void checkArgs(String[] args) {
-        if (args.length != 3) {
-            throw new IllegalArgumentException("Enter three parameters.");
+        if (args.length != 2) {
+            throw new IllegalArgumentException("Enter two parameters.");
         }
         if (!".".equals(args[0])) {
             throw new IllegalArgumentException("Root folder is not valid");

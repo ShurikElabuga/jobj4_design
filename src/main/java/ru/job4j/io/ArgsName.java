@@ -1,10 +1,10 @@
 package ru.job4j.io;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
 
 public class ArgsName {
-    private final Map<String, String> values = new LinkedHashMap<>();
+    private final Map<String, String> values = new HashMap<>();
 
     private static void checkArguments(String[] args) {
         if (args.length == 0) {

@@ -2,8 +2,6 @@ package ru.job4j.regex;
 
 import java.io.*;
 import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -21,25 +19,18 @@ public class ConsoleChat {
         this.botAnswers = botAnswers;
     }
 
-    private static String getRandomLine(String path) {
-        List<String> lines;
-        try {
-            lines = Files.readAllLines(Paths.get(path));
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+    private static String getRandomLine(List<String> strings) {
         Random random = new Random();
-        return lines.get(random.nextInt(lines.size()));
+        return strings.get(random.nextInt(strings.size()));
     }
 
     public void run() {
-        readPhrases();
         Scanner console = new Scanner(System.in);
         System.out.println("Напишите что-нибудь: ");
         String phrase;
         List<String> log = new ArrayList<>();
         boolean cycle = true;
+        boolean dialog = true;
         while (cycle) {
             phrase = console.nextLine();
             log.add(phrase);
@@ -47,17 +38,25 @@ public class ConsoleChat {
                 case OUT -> {
                     System.out.println("Программа закончила работу.");
                     saveLog(log);
-                cycle = false;}
-                case STOP -> System.out.println("Помолчу...");
+                cycle = false;
+                }
+                case STOP -> {
+                    System.out.println("Помолчу...");
+                    dialog = false;
+                }
                 case CONTINUE -> {
                     System.out.println("Продолжаем...");
-                    String answer = getRandomLine(botAnswers);
-                    System.out.println(answer);
-                log.add(answer);}
-                default -> {
-                    String answer = getRandomLine(botAnswers);
+                    String answer = getRandomLine(readPhrases());
                     System.out.println(answer);
                     log.add(answer);
+                    dialog = true;
+                }
+                default -> {
+                    if (dialog) {
+                        String answer = getRandomLine(readPhrases());
+                        System.out.println(answer);
+                        log.add(answer);
+                    }
                 }
             }
         }
@@ -65,8 +64,7 @@ public class ConsoleChat {
 
     private List<String> readPhrases() {
         List<String> answers = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(botAnswers, Charset.forName(
-                "WINDOWS-1251")))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(botAnswers))) {
             reader.lines()
                     .map(string -> string + System.lineSeparator())
                     .forEach(answers::add);

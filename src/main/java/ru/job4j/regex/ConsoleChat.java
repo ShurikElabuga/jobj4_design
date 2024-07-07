@@ -2,6 +2,8 @@ package ru.job4j.regex;
 
 import java.io.*;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -19,12 +21,20 @@ public class ConsoleChat {
         this.botAnswers = botAnswers;
     }
 
-    private static String getRandomLine(List<String> strings) {
+    private static String getRandomLine(String path) {
+        List<String> lines;
+        try {
+            lines = Files.readAllLines(Paths.get(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
         Random random = new Random();
-        return strings.get(random.nextInt(strings.size()));
+        return lines.get(random.nextInt(lines.size()));
     }
 
     public void run() {
+        readPhrases();
         Scanner console = new Scanner(System.in);
         System.out.println("Напишите что-нибудь: ");
         String phrase;
@@ -46,14 +56,14 @@ public class ConsoleChat {
                 }
                 case CONTINUE -> {
                     System.out.println("Продолжаем...");
-                    String answer = getRandomLine(readPhrases());
+                    String answer = getRandomLine(botAnswers);
                     System.out.println(answer);
                     log.add(answer);
                     dialog = true;
                 }
                 default -> {
                     if (dialog) {
-                        String answer = getRandomLine(readPhrases());
+                        String answer = getRandomLine(botAnswers);
                         System.out.println(answer);
                         log.add(answer);
                     }

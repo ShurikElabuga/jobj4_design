@@ -21,7 +21,7 @@ public class ConsoleChat {
         this.botAnswers = botAnswers;
     }
 
-    private static String getRandomLine(String path) {
+    private String getRandomLine(String path) {
         List<String> lines;
         try {
             lines = Files.readAllLines(Paths.get(path));

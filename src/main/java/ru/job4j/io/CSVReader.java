@@ -13,13 +13,14 @@ public class CSVReader {
         String out = argsName.get("out");
         String[] filter = argsName.get("filter").split(",");
 
-        Scanner scan = new Scanner(new FileInputStream(fileCSV));
         List<String> strings = new ArrayList<>();
-
-        while (scan.hasNextLine()) {
-            strings.add(scan.nextLine());
+        try (Scanner scan = new Scanner(new FileInputStream(fileCSV))) {
+            while (scan.hasNextLine()) {
+                strings.add(scan.nextLine());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-        scan.close();
 
         List<Integer> indexList = new ArrayList<>();
         int index;

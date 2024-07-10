@@ -18,7 +18,7 @@ public class UsageLog4j {
         double d = 3.14;
         boolean t = true;
         char ch = 102;
-        LOG.debug("byte b = {}, int i = {}, short s = {}, long l = {}, " +
-                "float f = {}, double d = {}, boolean t = {}, char ch = {}", b, i, s, l, f, d, t, ch);
+        LOG.debug("byte b = {}, int i = {}, short s = {}, long l = {}, "
+                + "float f = {}, double d = {}, boolean t = {}, char ch = {}", b, i, s, l, f, d, t, ch);
     }
 }

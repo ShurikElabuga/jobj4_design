@@ -22,7 +22,7 @@ public class FlightXml {
   @XmlElement(name = "model")
   private String[] models;
 
-  public FlightXml() {}
+  public FlightXml() { }
 
     public FlightXml(boolean isReady, int fuelling, String airline, AircraftXml aircraftType, String... models) {
         this.isReady = isReady;
@@ -43,7 +43,7 @@ public class FlightXml {
                 + '}';
     }
 
-    public static void main(String[] args) throws JAXBException{
+    public static void main(String[] args) throws JAXBException {
         final FlightXml flight = new FlightXml(true, 58000, "Aeroflot",
                 new AircraftXml("Boeing"), "737", "747", "777");
 

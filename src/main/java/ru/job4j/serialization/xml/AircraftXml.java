@@ -9,7 +9,7 @@ public class AircraftXml {
     @XmlAttribute
     private String type;
 
-    public AircraftXml() {}
+    public AircraftXml() { }
 
     public AircraftXml(String type) {
         this.type = type;

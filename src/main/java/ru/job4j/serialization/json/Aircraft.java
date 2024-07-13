@@ -9,7 +9,7 @@ public class Aircraft {
 
     @Override
     public String toString() {
-        return "ru.job4j.serialization.json.Aircraft{"
+        return "Aircraft{"
                 + "type='" + type + '\''
                 + '}';
     }

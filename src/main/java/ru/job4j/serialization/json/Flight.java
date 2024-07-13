@@ -9,7 +9,7 @@ public class Flight {
     private final Aircraft aircraftType;
     private final String[] models;
 
-    public Flight(boolean isReady, int fuelling, String airline, Aircraft aircraftType, String[] models) {
+    public Flight(boolean isReady, int fuelling, String airline, Aircraft aircraftType, String... models) {
         this.isReady = isReady;
         this.fuelling = fuelling;
         this.airline = airline;
@@ -17,9 +17,29 @@ public class Flight {
         this.models = models;
     }
 
+    public boolean isReady() {
+        return isReady;
+    }
+
+    public int getFuelling() {
+        return fuelling;
+    }
+
+    public String getAirline() {
+        return airline;
+    }
+
+    public Aircraft getAircraftType() {
+        return aircraftType;
+    }
+
+    public String[] getModels() {
+        return models;
+    }
+
     @Override
     public String toString() {
-        return "ru.job4j.serialization.json.Flight{"
+        return "Flight{"
                 + "isReady=" + isReady
                 + ", fuelling=" + fuelling
                 + ", airline='" + airline + '\''

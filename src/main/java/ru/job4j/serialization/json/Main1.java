@@ -1,17 +1,22 @@
 package ru.job4j.serialization.json;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+
+import org.json.JSONObject;
 
 public class Main1 {
     public static void main(String[] args) {
         Flight flight = new Flight(true, 58000, "Aeroflot", new Aircraft("Boeing"),
-                new String[] {"737", "747", "777"});
+                "737", "747", "777");
 
-        final Gson gson = new GsonBuilder().create();
-        final String flightJson = gson.toJson(flight);
-        System.out.println(flightJson);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("ready", flight.isReady());
+        jsonObject.put("fuelling", flight.getFuelling());
+        jsonObject.put("airline", flight.getAirline());
+        jsonObject.put("aircraft", flight.getAircraftType());
+        jsonObject.put("models", flight.getModels());
 
-        System.out.println(gson.fromJson(flightJson, Flight.class));
+        System.out.println(jsonObject);
+        System.out.println(new JSONObject(flight));
+
     }
 }

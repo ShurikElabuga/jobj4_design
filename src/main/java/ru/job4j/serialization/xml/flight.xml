@@ -1,0 +1,9 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<flight isReady="true" fuelling="58000" airline="Aeroflot">
+    <aircraftType type="Boeing"/>
+    <models>
+        <model>737</model>
+        <model>747</model>
+        <model>777</model>
+    </models>
+</flight>

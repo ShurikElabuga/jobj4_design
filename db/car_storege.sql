@@ -46,13 +46,16 @@ select c.name as car_name, b.name as body_name, e.name as engine_name, tr.name a
 	left join car_engines e on c.engine_id = e.id
 	left join car_transmissions tr on c.transmission_id = tr.id;
 
-select name from car_bodies
-    where id not in (select body_id from cars);
+select b.name from car_bodies b
+	left join cars cr on b.id = cr.body_id
+	where cr.id is null;
 
-select name from car_engines
-	where id not in (select engine_id from cars);
+select e.name from car_engines e
+	left join cars cr on e.id = cr.engine_id
+	where cr.id is null;
 
-select name from car_transmissions
-	where id not in (select transmission_id from cars);
+select tr.name from car_transmissions tr
+	 left join cars cr on tr.id = cr.transmission_id
+	 where cr.id is null;
 
 

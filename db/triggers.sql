@@ -37,7 +37,7 @@ or replace function discount()
     returns trigger as
 $$
     BEGIN
-        price = price + price * 0.2
+        new.price = new.price + new.price * 0.2;
         return NEW;
     END;
 $$

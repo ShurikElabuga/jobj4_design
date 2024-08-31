@@ -64,5 +64,8 @@ fetch 1 from cursor_revers; -- результат на скриншоте 3
 move backward 6 from cursor_revers; -- переход на 2 строку
 fetch prior from cursor_revers; --переход на 1 строку, результат на скриншоте 4
 
+close cursor_revers;
+commit;
+
 
 

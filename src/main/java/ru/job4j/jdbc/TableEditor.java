@@ -10,13 +10,17 @@ public class TableEditor implements AutoCloseable {
 
     private Properties properties;
 
-    public TableEditor(Properties properties) {
+    public TableEditor(Properties properties) throws Exception {
         this.properties = properties;
         initConnection();
     }
 
-    private void initConnection() {
-        connection = null;
+    private void initConnection() throws Exception {
+        Class.forName(properties.getProperty("driver_class"));
+        String url = properties.getProperty("url");
+        String login = properties.getProperty("username");
+        String password = properties.getProperty("password");
+        connection = DriverManager.getConnection(url, login, password);;
     }
 
     private void runScript(String sql, String tableName) {
@@ -35,8 +39,13 @@ public class TableEditor implements AutoCloseable {
     }
 
     public void dropTable(String tableName) {
-        String sql = String.format("drop table if exists %s;", tableName);
-        runScript(sql, tableName);
+        try (Statement statement = connection.createStatement()) {
+            String sql = String.format("drop table if exists %s;", tableName);
+            statement.execute(sql);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Table " + tableName + " removed.");
     }
 
     public void addColumn(String tableName, String columnName, String type) {
@@ -90,16 +99,11 @@ public class TableEditor implements AutoCloseable {
                 .getResourceAsStream("app.properties")) {
             config.load(in);
         }
-        String url = config.getProperty("url");
-        String login = config.getProperty("username");
-        String password = config.getProperty("password");
-        try (var tableEditor = new TableEditor(config)) {
-            tableEditor.connection = DriverManager.getConnection(url, login, password);
+        TableEditor tableEditor = new TableEditor(config);
             tableEditor.createTable("created_table");
             tableEditor.addColumn("created_table", "created_column", "text");
             tableEditor.renameColumn("created_table", "created_column", "renamed_column");
             tableEditor.dropColumn("created_table", "renamed_column");
             tableEditor.dropTable("created_table");
-        }
     }
 }

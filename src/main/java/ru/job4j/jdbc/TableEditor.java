@@ -20,7 +20,7 @@ public class TableEditor implements AutoCloseable {
         String url = properties.getProperty("url");
         String login = properties.getProperty("username");
         String password = properties.getProperty("password");
-        connection = DriverManager.getConnection(url, login, password);;
+        connection = DriverManager.getConnection(url, login, password);
     }
 
     private void runScript(String sql, String tableName) {
@@ -99,11 +99,12 @@ public class TableEditor implements AutoCloseable {
                 .getResourceAsStream("app.properties")) {
             config.load(in);
         }
-        TableEditor tableEditor = new TableEditor(config);
+        try (TableEditor tableEditor = new TableEditor(config)) {
             tableEditor.createTable("created_table");
             tableEditor.addColumn("created_table", "created_column", "text");
             tableEditor.renameColumn("created_table", "created_column", "renamed_column");
             tableEditor.dropColumn("created_table", "renamed_column");
             tableEditor.dropTable("created_table");
+        }
     }
 }

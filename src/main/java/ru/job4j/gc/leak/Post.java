@@ -28,10 +28,19 @@ public class Post {
         this.id = id;
     }
 
-    /*остальные getter/setter*/
+    public String getText() {
+        return text;
+    }
 
-    @Override
-    protected void finalize() throws Throwable {
-        super.finalize();
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

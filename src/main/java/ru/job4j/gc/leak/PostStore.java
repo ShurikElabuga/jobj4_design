@@ -22,4 +22,5 @@ public class PostStore {
     public static Collection<Post> getPosts() {
         return posts.values();
     }
+
 }

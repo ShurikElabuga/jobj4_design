@@ -10,10 +10,19 @@ public class Comment {
         this.user = user;
     }
 
-    /*getter/setter*/
+    public String getText() {
+        return text;
+    }
 
-    @Override
-    protected void finalize() throws Throwable {
-        super.finalize();
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

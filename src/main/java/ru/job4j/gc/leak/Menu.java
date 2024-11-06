@@ -34,7 +34,7 @@ public class Menu {
                 String text = scanner.nextLine();
                 userGenerator.generate();
                 commentGenerator.generate();
-                postStore.add(new Post(text, CommentGenerator.getComments()));
+                postStore.add(new Post(text, commentGenerator.getComments()));
             } else if (2 == userChoice) {
                 System.out.println("Введите текст");
                 String text = scanner.nextLine();
@@ -44,7 +44,7 @@ public class Menu {
                     createPost(commentGenerator, userGenerator, postStore, text);
                 }
             } else if (3 == userChoice) {
-                System.out.println(PostStore.getPosts());
+                System.out.println(postStore.getPosts());
             } else if (4 == userChoice) {
                 System.out.println("Все посты удалены");
                 postStore.removeAll();
@@ -59,6 +59,6 @@ public class Menu {
                                    UserGenerator userGenerator, PostStore postStore, String text) {
         userGenerator.generate();
         commentGenerator.generate();
-        postStore.add(new Post(text, CommentGenerator.getComments()));
+        postStore.add(new Post(text, commentGenerator.getComments()));
     }
 }

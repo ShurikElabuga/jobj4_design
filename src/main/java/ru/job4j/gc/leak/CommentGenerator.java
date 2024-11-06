@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Random;
 
 public class CommentGenerator implements Generate {
-    private static List<Comment> comments = new ArrayList<>();
+    private List<Comment> comments = new ArrayList<>();
     public static final int COUNT = 50;
-    private static List<String> phrases;
+    private List<String> phrases;
     private UserGenerator userGenerator;
     private Random random;
 
@@ -26,7 +26,7 @@ public class CommentGenerator implements Generate {
         }
     }
 
-    public static List<Comment> getComments() {
+    public List<Comment> getComments() {
         return comments;
     }
 

@@ -20,6 +20,7 @@ public class Emulator {
             scanner.nextLine();
 
             switch (choice) {
+
                 case 1:
                     System.out.print("Введите путь к кэшируемой директории: ");
                     String dir = scanner.nextLine();

@@ -15,7 +15,7 @@ public class Fool {
                     System.out.println(createAnswer(startAt));
                     startAt++;
                     var answer = input.nextLine();
-                    if(checkAnswer(answer, startAt)) {
+                    if (checkAnswer(answer, startAt)) {
                         startAt = 0;
                     }
                     startAt++;
@@ -38,7 +38,7 @@ public class Fool {
 
             public static boolean checkAnswer(String answer, int num) {
                 boolean result = false;
-                if(!createAnswer(num).equals(answer)) {
+                if (!createAnswer(num).equals(answer)) {
                     System.out.println("Ошибка. Начинай снова.");
                     result = true;
                 }

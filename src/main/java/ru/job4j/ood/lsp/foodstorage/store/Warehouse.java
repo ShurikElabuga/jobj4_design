@@ -1,6 +1,6 @@
-package ru.job4j.ood.lsp.foodStorage.store;
+package ru.job4j.ood.lsp.foodstorage.store;
 
-import ru.job4j.ood.lsp.foodStorage.Food;
+import ru.job4j.ood.lsp.foodstorage.Food;
 
 public class Warehouse extends AbstractStore {
 

@@ -1,7 +1,7 @@
-package ru.job4j.ood.lsp.foodStorage.store;
+package ru.job4j.ood.lsp.foodstorage.store;
 
 import org.junit.jupiter.api.Test;
-import ru.job4j.ood.lsp.foodStorage.Food;
+import ru.job4j.ood.lsp.foodstorage.Food;
 
 import java.time.LocalDate;
 

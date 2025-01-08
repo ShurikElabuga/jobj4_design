@@ -9,5 +9,6 @@ public interface Store {
     void add(Food product);
     void move(Food product, double remainingLife);
     List<Food> getAll();
+    void delete();
 
 }

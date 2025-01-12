@@ -5,7 +5,6 @@ import java.util.Arrays;
 public class SmallestRangeFinder {
 
     public static int[] findSmallestRange(int[] nums, int k) {
-
         int[] result = new int[2];
         int i = 0;
         int j = 1;

@@ -22,11 +22,13 @@ public class Parking implements Park {
             listVehicles.add(vehicle);
             placeCar--;
             result = true;
-        } if (size > 1 && placeTruck > 0) {
+        }
+        if (size > 1 && placeTruck > 0) {
             listVehicles.add(vehicle);
             placeTruck--;
             result = true;
-        } if (size > 1 && size <= placeCar) {
+        }
+        if (size > 1 && size <= placeCar) {
             listVehicles.add(vehicle);
             placeCar--;
             result = true;

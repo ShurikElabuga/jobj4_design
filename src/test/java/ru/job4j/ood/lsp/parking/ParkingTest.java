@@ -13,7 +13,7 @@ class ParkingTest {
     void whenParkingCarAndTruck() {
         Vehicle car = new Car();
         Vehicle truck = new Truck(3);
-        Park parking = new Parking(1,1);
+        Park parking = new Parking(1, 1);
         assertTrue(parking.parking(car));
         assertTrue(parking.parking(truck));
     }
@@ -22,7 +22,7 @@ class ParkingTest {
     void whenParkingCarAndNotParkingTruck() {
         Vehicle car = new Car();
         Vehicle truck = new Truck(3);
-        Park parking = new Parking(1,0);
+        Park parking = new Parking(1, 0);
         assertTrue(parking.parking(car));
         assertFalse(parking.parking(truck));
     }
@@ -31,7 +31,7 @@ class ParkingTest {
     void whenParkingTruckAndNotParkingCar() {
         Vehicle car = new Car();
         Vehicle truck = new Truck(3);
-        Park parking = new Parking(0,1);
+        Park parking = new Parking(0, 1);
         assertFalse(parking.parking(car));
         assertTrue(parking.parking(truck));
     }
@@ -40,7 +40,7 @@ class ParkingTest {
     void whenParkHasPlacesForCarsButTrackParkingThere() {
         Vehicle car = new Car();
         Vehicle truck = new Truck(3);
-        Park parking = new Parking(4,0);
+        Park parking = new Parking(4, 0);
         assertTrue(parking.parking(car));
         assertTrue(parking.parking(truck));
     }
@@ -49,7 +49,7 @@ class ParkingTest {
     void whenParkHasNotPlaces() {
         Vehicle car = new Car();
         Vehicle truck = new Truck(3);
-        Park parking = new Parking(0,0);
+        Park parking = new Parking(0, 0);
         assertFalse(parking.parking(car));
         assertFalse(parking.parking(truck));
     }

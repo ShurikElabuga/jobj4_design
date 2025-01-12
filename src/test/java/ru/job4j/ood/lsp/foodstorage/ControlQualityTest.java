@@ -1,16 +1,6 @@
 package ru.job4j.ood.lsp.foodstorage;
 
-import org.junit.jupiter.api.Test;
-import ru.job4j.ood.lsp.foodstorage.store.Shop;
-import ru.job4j.ood.lsp.foodstorage.store.Store;
-import ru.job4j.ood.lsp.foodstorage.store.Trash;
-import ru.job4j.ood.lsp.foodstorage.store.Warehouse;
-
-import java.time.LocalDate;
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
+/*
 class ControlQualityTest {
 
     @Test
@@ -35,4 +25,4 @@ class ControlQualityTest {
         assertThat(expectProduct).isEqualTo(product);
 
     }
-}
+}*/

@@ -29,7 +29,9 @@ public class Task75 {
             maxCount = Math.max(maxCount, count);
 
             if (count != 0) {
+
                 minCount = Math.min(minCount, count);
+
             }
         }
 

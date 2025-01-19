@@ -7,7 +7,6 @@ public class Task75 {
         for (int num : arr) {
             counts[num]++;
         }
-
         StringBuilder firstLine = new StringBuilder();
         int length = 0;
         for (int i = 1; i <= 9; i++) {
@@ -17,22 +16,17 @@ public class Task75 {
             firstLine.append(i).append(": ").append(counts[i]).append(", ");
         }
         firstLine.delete(firstLine.length() - 2, firstLine.length()); /*Удаляем запятую и пробел в конце*/
-
         int maxCount = 0;
         int minCount = 9;
-
         for (int count : counts) {
             maxCount = Math.max(maxCount, count);
-
             if (count != 0) {
                 minCount = Math.min(minCount, count);
             }
         }
-
         StringBuilder mostFrequent = new StringBuilder();
         StringBuilder leastFrequent = new StringBuilder();
         StringBuilder absent = new StringBuilder();
-
         for (int i = 1; i <= 9; i++) {
             if (counts[i] == maxCount && maxCount > 0 && maxCount != 1 && length > 1) {
                 mostFrequent.append(i).append(" ");
@@ -44,7 +38,6 @@ public class Task75 {
                 leastFrequent.append(i).append(" ");
             }
         }
-
         if (mostFrequent.length() == 0) {
             mostFrequent.append("0");
         } else {
@@ -60,7 +53,6 @@ public class Task75 {
         } else {
             leastFrequent.deleteCharAt(leastFrequent.length() - 1);
         }
-
         System.out.println(firstLine);
         System.out.println("Чаще: " + mostFrequent + ", отсутствует: " + absent + ", реже: " + leastFrequent);
     }

@@ -1,10 +1,13 @@
 package ru.job4j.tasks;
 
 public class Task75 {
+
     public static void array(int[] arr) {
+
         int[] counts = new int[10]; /*Индексы соответствуют цифрам от 0 до 9*/
         for (int num : arr) {
             counts[num]++;
+
         }
 
         StringBuilder firstLine = new StringBuilder();

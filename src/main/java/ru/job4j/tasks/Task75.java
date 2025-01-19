@@ -1,30 +1,31 @@
 package ru.job4j.tasks;
 
 public class Task75 {
+
     public static void array(int[] arr) {
+
         int[] counts = new int[10]; /*Индексы соответствуют цифрам от 0 до 9*/
+
         for (int num : arr) {
             counts[num]++;
         }
 
         StringBuilder firstLine = new StringBuilder();
         int length = 0;
+
         for (int i = 1; i <= 9; i++) {
             if (counts[i] > 1) {
                 length++;
             }
             firstLine.append(i).append(": ").append(counts[i]).append(", ");
         }
+
         firstLine.delete(firstLine.length() - 2, firstLine.length()); /*Удаляем запятую и пробел в конце*/
-
-
         int maxCount = 0;
         int minCount = 9;
 
         for (int count : counts) {
-
             maxCount = Math.max(maxCount, count);
-
             if (count != 0) {
                 minCount = Math.min(minCount, count);
             }
@@ -67,24 +68,31 @@ public class Task75 {
     }
 
     public static void main(String[] args) {
+
         int[] numbers1 = {1, 1, 1, 2, 2, 3, 3, 4, 5};
         array(numbers1);
         System.out.println("_______________________________________");
+
         int[] numbers2 = {3, 2, 2, 1, 1};
         array(numbers2);
         System.out.println("_______________________________________");
+
         int[] num3 = {1, 1};
         array(num3);
         System.out.println("_______________________________________");
+
         int[] num4 = {1, 2, 2, 4, 5, 2, 7, 8, 7};
         array(num4);
         System.out.println("_______________________________________");
+
         int[] num5 = {2, 1, 3, 5, 6, 4, 9, 7, 8};
         array(num5);
         System.out.println("_______________________________________");
+
         int[] num7 = {1, 1, 1};
         array(num7);
         System.out.println("_______________________________________");
+
         int[] num6 = {2, 1};
         array(num6);
     }

@@ -3,11 +3,9 @@ package ru.job4j.tasks;
 public class Task75 {
 
     public static void array(int[] arr) {
-
         int[] counts = new int[10]; /*Индексы соответствуют цифрам от 0 до 9*/
         for (int num : arr) {
             counts[num]++;
-
         }
 
         StringBuilder firstLine = new StringBuilder();
@@ -20,18 +18,14 @@ public class Task75 {
         }
         firstLine.delete(firstLine.length() - 2, firstLine.length()); /*Удаляем запятую и пробел в конце*/
 
-
         int maxCount = 0;
         int minCount = 9;
 
         for (int count : counts) {
-
             maxCount = Math.max(maxCount, count);
 
             if (count != 0) {
-
                 minCount = Math.min(minCount, count);
-
             }
         }
 

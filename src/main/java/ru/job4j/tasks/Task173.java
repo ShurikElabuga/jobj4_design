@@ -3,7 +3,6 @@ package ru.job4j.tasks;
 public class Task173 {
 
     public static String code(String s) {
-
         if (s.length() == 0) {
             return "empty";
         }

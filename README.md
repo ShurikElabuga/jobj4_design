@@ -38,3 +38,4 @@
 2.4 Garbage Collection
 
 2.5 Чистая архетиктура
+

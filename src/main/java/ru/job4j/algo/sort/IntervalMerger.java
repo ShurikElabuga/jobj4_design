@@ -7,6 +7,7 @@ import java.util.List;
 public class IntervalMerger {
 
     public int[][] merge(int[][] intervals) {
+
         Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
             List<int[]> arrayList = new ArrayList<>();
             int[] currentInterval = intervals[0];
@@ -22,6 +23,7 @@ public class IntervalMerger {
                     arrayList.add(currentInterval);
                 }
             }
+
             int[][] result = new int[arrayList.size()][2];
             return arrayList.toArray(result);
         }
